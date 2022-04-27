@@ -1,5 +1,5 @@
-#include "Include/args/args.hxx"
-#include "Include/cpp-header/src/common.hpp"
+#include <args.hxx>
+#include "common.hpp"
 #include <cstring>
 using Debug = Common::Debug;
 Debug Dbg;

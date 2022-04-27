@@ -4,3 +4,9 @@
 [submodule "vendor/json"]
 	path = vendor/json
 	url = https://github.com/nlohmann/json
+[submodule "vendor/cpp-header"]
+	path = vendor/cpp-header
+	url = https://github.com/notSam25/cpp-header.git
+[submodule "vendor/args"]
+	path = vendor/args
+	url = https://github.com/Taywee/args.git
