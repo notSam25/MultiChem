@@ -4,3 +4,9 @@
 [submodule "src/Include/args"]
 	path = src/Include/args
 	url = https://github.com/Taywee/args
+[submodule "src/Include/json"]
+	path = src/Include/json
+	url = https://github.com/nlohmann/json
+[submodule "src/Include/filesystem"]
+	path = src/Include/filesystem
+	url = https://github.com/gulrak/filesystem
