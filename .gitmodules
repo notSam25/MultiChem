@@ -1,0 +1,6 @@
+[submodule "src/Include/cpp-header"]
+	path = src/Include/cpp-header
+	url = https://github.com/notSam25/cpp-header/
+[submodule "src/Include/args"]
+	path = src/Include/args
+	url = https://github.com/Taywee/args
