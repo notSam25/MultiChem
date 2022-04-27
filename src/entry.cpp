@@ -2,7 +2,7 @@
 #include "Include/common.hpp"
 
 int main(int argc, char **argv)  {
-    //Common::PrintSystemInformation();
+    Common::PrintSystemInformation();
 
     args::ArgumentParser parser("MultiChem by @notSam25", "Thanks for building!");
     args::HelpFlag help(parser, "help", "Display this help menu", {'h', "help"});
