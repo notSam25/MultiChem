@@ -1,10 +1,9 @@
 #pragma once
-#include <common.hpp>
 
 
 class Balance   {
 public:
-    ~Blanace();
+    ~Balance();
     
 protected:
 };
