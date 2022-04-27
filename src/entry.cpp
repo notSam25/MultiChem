@@ -8,6 +8,7 @@ int main(int argc, char **argv)  {
     args::HelpFlag help(parser, "help", "Display this help menu", {'h', "help"});
     args::Group commands(parser, "Commands");
     args::Command add(commands, "path", "path to JSON file");
+    
     try {
         parser.ParseCLI(argc, argv);
     }

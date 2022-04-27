@@ -17,7 +17,7 @@
     mkdir build
     cd build
     cmake ..
-    make
+    cmake --build .
     ```
 
 ## Media
