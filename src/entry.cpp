@@ -1,9 +1,9 @@
-#include "Include/args.hpp"
-#include "Include/common.hpp"
+#include "Include/args/args.hxx"
+#include "Include/cpp-header/src/common.hpp"
 #include <cstring>
-
 using Debug = Common::Debug;
 Debug Dbg;
+
 int main(int argc, char **argv)  {
     Common::PrintSystemInformation();
     if(strcmp(Common::GetOperatingSystemName(), "linux")) {
