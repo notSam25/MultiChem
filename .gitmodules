@@ -1,0 +1,6 @@
+[submodule "vendor/ghc_filesystem"]
+	path = vendor/ghc_filesystem
+	url = https://github.com/gulrak/filesystem.git
+[submodule "vendor/json"]
+	path = vendor/json
+	url = https://github.com/nlohmann/json

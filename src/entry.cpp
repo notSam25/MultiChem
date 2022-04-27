@@ -1,7 +1,13 @@
 #include "Include/args.hpp"
 #include "Include/common.hpp"
 
+#include "ghc/filesystem.hpp"
+#include <nlohmann/json.hpp>
+
 int main(int argc, char **argv)  {
+    // make sure ghc::filesystem works
+    std::cout << "current path: " << ghc::filesystem::current_path() << std::endl;
+
     Common::PrintSystemInformation();
 
     args::ArgumentParser parser("MultiChem by @notSam25", "Thanks for building!");
