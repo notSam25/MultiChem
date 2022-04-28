@@ -24,5 +24,4 @@
 
 ## TODO
 
-    * add JSON parsing lib
     * Get chem equation from path via filesystem lib
