@@ -1,12 +1,12 @@
 #include <args.hxx>
 #include "common.hpp"
-#include <cstring>
-using Debug = Common::Debug;
-Debug Dbg;
-
 #include "ghc/filesystem.hpp"
 #include <nlohmann/json.hpp>
+#include <cstring>
 
+using Debug = Common::Debug;
+Debug Dbg;
+/*
 int main(int argc, char **argv)  {
     // make sure ghc::filesystem works
     std::cout << "current path: " << ghc::filesystem::current_path() << std::endl;
@@ -39,5 +39,9 @@ int main(int argc, char **argv)  {
         std::cerr << parser;
         return -1;
     }
+    return 0;
+}*/
+
+int main()  {
     return 0;
 }
