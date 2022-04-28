@@ -19,14 +19,14 @@ int main(int argc, char **argv)  {
     args::HelpFlag help(parser, "help", "Display this help menu", {'h', "help"});
     args::Group commands(parser, "Commands");
     args::ValueFlag<std::string> message(parser, "PATH", "Path to JSON input", {'p'});
-    
+
     try {
         parser.ParseCLI(argc, argv);
         if(message) {
             std::cout << "Path: " << args::get(message) << std::endl;
             if(ghc::filesystem::exists(message->c_str()) && strcmp(ghc::filesystem::path(message->c_str()).extension().c_str(), ".json")) {
                 // File exists and has the extension of .json
-
+                
             } else
                 Dbg.LogData(Debug::LogType::Error, "File does not exist!");
         }

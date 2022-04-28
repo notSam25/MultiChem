@@ -15,6 +15,7 @@
     * https://github.com/notSam25/cpp-header
     * https://github.com/gulrak/filesystem
     * https://github.com/nlohmann/json
+    * https://github.com/Bowserinator/Periodic-Table-JSON
 
 ## Building
 
