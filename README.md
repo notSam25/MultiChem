@@ -4,11 +4,17 @@
 
 ## About
 
-    This tool can be used to:
+ This tool can be used to:
     * Balance chemical equations
     * Mole Conversions
     * Percent Abundance
     * Determine a chemical equations physical states.
+
+ GitModules:
+    * https://github.com/Taywee/args
+    * https://github.com/notSam25/cpp-header
+    * https://github.com/gulrak/filesystem
+    * https://github.com/nlohmann/json
 
 ## Building
 
