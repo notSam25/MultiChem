@@ -1,3 +1,4 @@
+#include "Core/MoleConversion.hpp"
 #include "Core/PeriodicTable.hpp"
 #include "Core/filesystem.hpp"
 #include "common.hpp"
@@ -22,6 +23,7 @@ int main(int argc, char **argv) {
                               "Licence info on github.com/notSam25/MultiChem");
   args::HelpFlag help(parser, "help", "Display this help menu", {'h', "help"});
   args::Group commands(parser, "Commands");
+  args::Flag MoleConvert(commands, "m", "Convert to mole", {'m', "mole"});
   args::ValueFlag<std::string> message(parser, "PATH", "Path to JSON input",
                                        {'p'});
 
@@ -44,8 +46,8 @@ int main(int argc, char **argv) {
         std::string data = mc::filesystem::getFileContents(message->c_str());
         nlohmann::json InputData =
             nlohmann::json::parse(data.c_str())["MoleConversion"];
-        std::cout << "InputJSON " << InputData
-                  << std::endl; // Prints all data in input file
+        if (MoleConvert)
+          mc::MoleConversion::ConvertMoles(InputData);
 
       } else
         Dbg.LogData(Debug::LogType::Error, "File does not exist!");
