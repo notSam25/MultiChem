@@ -18,7 +18,7 @@
 
 ## Building
 
-> This program can be built using cmake 3.16+
+> This program was built and tested using cmake 3.16+
     ```bash
     mkdir build
     cd build
