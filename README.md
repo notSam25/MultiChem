@@ -32,4 +32,4 @@
 ## TODO
 
     * Get chem equation from path via filesystem
-    * Make example json file for input equation/compound/element
+    * Finish example .json input
