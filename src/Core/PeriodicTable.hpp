@@ -1,5 +1,6 @@
 // https://github.com/Bowserinator/Periodic-Table-JSON
 // https://github.com/ADawesomeguy/chemical-formula-parser/blob/master/src/periodictable.cpp
+#pragma once
 
 unsigned char periodic_table[] = {
     0x7b, 0x0a, 0x20, 0x20, 0x20, 0x20, 0x22, 0x65, 0x6c, 0x65, 0x6d, 0x65,
