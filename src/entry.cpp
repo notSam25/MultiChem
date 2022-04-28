@@ -1,5 +1,6 @@
 #include <args.hxx>
 #include "common.hpp"
+#include "Core/PeriodicTable.hpp"
 #include "ghc/filesystem.hpp"
 #include <nlohmann/json.hpp>
 #include <cstring>
@@ -27,6 +28,12 @@ int main(int argc, char **argv)  {
             if(ghc::filesystem::exists(message->c_str()) && strcmp(ghc::filesystem::path(message->c_str()).extension().c_str(), ".json")) {
                 // File exists and has the extension of .json
 
+                //test JSON parse of periodic table
+                std::string periodicTable(reinterpret_cast<char*>(periodic_table));
+                nlohmann::json elementData = nlohmann::json::parse(periodicTable)["elements"];
+                nlohmann::json currentElementData = elementData[0];
+                std::cout << currentElementData.value("name", "") << std::endl; //Prints Hydrogen
+  
             } else
                 Dbg.LogData(Debug::LogType::Error, "File does not exist!");
         }
