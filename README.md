@@ -29,4 +29,5 @@
 
 ## TODO
 
-    * Finish example .json input
+    * Finish example .json input.
+    * Add support for parenthesis.
