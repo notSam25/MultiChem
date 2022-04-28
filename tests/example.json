@@ -1,9 +1,8 @@
 {
     "MoleConversion": {
         "Equation": "Na2SO4",
-        "Mass": 450,
-        "Particles": "",
-        "Volume": "",
+        "Mass": "450",
+        "Moles": "",
         "Output": "moles"
     },
     "Abundance": {},
