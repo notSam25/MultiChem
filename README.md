@@ -31,5 +31,4 @@
 
 ## TODO
 
-    * Get chem equation from path via filesystem
     * Finish example .json input
