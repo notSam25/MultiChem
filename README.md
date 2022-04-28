@@ -31,4 +31,5 @@
 
 ## TODO
 
-    * Get chem equation from path via filesystem lib
+    * Get chem equation from path via filesystem
+    * Make example json file for input equation/compound/element
