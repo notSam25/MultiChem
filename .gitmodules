@@ -11,6 +11,6 @@
 [submodule "vendor/args"]
 	path = vendor/args
 	url = https://github.com/Taywee/args.git
-[submodule "build/Periodic-Table-JSON"]
-	path = build/Periodic-Table-JSON
+[submodule "vendor/Periodic-Table-JSON"]
+	path = vendor/Periodic-Table-JSON
 	url = https://github.com/Bowserinator/Periodic-Table-JSON
