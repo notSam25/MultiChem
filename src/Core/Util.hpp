@@ -1,7 +1,6 @@
+#pragma once
 #include "PeriodicTable.hpp"
-#include <cctype>
 #include <nlohmann/json.hpp>
-#include <string>
 
 std::string periodicTable(reinterpret_cast<char *>(periodic_table));
 nlohmann::json elementData = nlohmann::json::parse(periodicTable)["elements"];

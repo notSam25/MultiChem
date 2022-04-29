@@ -1,14 +1,7 @@
 #pragma once
-#include "PeriodicTable.hpp"
 #include "Util.hpp"
-#include <cctype>
-#include <cstddef>
-#include <cstring>
-#include <iostream>
-#include <iterator>
 #include <nlohmann/json.hpp>
-#include <stdexcept>
-#include <string>
+#include <iostream>
 
 namespace mc::MoleConversion {
 inline void ConvertMoles(nlohmann::json input) {
