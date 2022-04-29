@@ -25,19 +25,19 @@ int main(int argc, char **argv) {
   args::Flag MoleConvert(commands, "m", "Convert to mole", {'m', "mole"});
   args::Flag BalanceEquation(commands, "b", "Balance equation",
                              {'b', "balance"});
-  args::ValueFlag<std::string> message(parser, "PATH", "Path to JSON input",
+  args::ValueFlag<std::string> inputPath(parser, "PATH", "Path to JSON input",
                                        {'p'});
 
   try {
     parser.ParseCLI(argc, argv);
-    if (message) {
-      std::cout << "Path: " << args::get(message) << std::endl;
-      if (std::filesystem::exists(message->c_str()) &&
-          strcmp(std::filesystem::path(message->c_str()).extension().c_str(),
+    if (inputPath) {
+      std::string strInputPath = inputPath->c_str();
+      if (std::filesystem::exists(strInputPath.c_str()) &&
+          strcmp(std::filesystem::path(strInputPath.c_str()).extension().c_str(),
                  ".json") == 0) {
         // File exists and has the extension of .json
-
-        std::string data = mc::Filesystem::GetFileContents(message->c_str());
+        Dbg.LogData(Debug::LogType::Info, "Input Path: " + strInputPath);
+        std::string data = mc::Filesystem::GetFileContents(strInputPath.c_str());
         if (MoleConvert) {
           nlohmann::json InputData =
               nlohmann::json::parse(data.c_str())["MoleConversion"];
