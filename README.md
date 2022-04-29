@@ -26,8 +26,3 @@
     ```
 
 ## Media
-
-## TODO
-
-    * Finish example .json input.
-    * Add support for parenthesis.
