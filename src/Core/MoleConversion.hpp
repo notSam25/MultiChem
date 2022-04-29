@@ -10,8 +10,6 @@
 #include <stdexcept>
 #include <string>
 
-
-
 namespace mc::MoleConversion {
 inline void ConvertMoles(nlohmann::json input) {
   std::string toConvert = input.value("Output", "");
@@ -25,7 +23,8 @@ inline void ConvertMoles(nlohmann::json input) {
     }
 
     std::string EquationStr = input.value("Equation", "");
-    std::cout << "Total MolarMass of [ " << EquationStr << " , " << mc::util::GetMolarMass(EquationStr) << " ]" << std::endl;
+    std::cout << "Total MolarMass of [ " << EquationStr << " , "
+              << mc::util::GetMolarMass(EquationStr) << " ]" << std::endl;
   }
 }
 } // namespace mc::MoleConversion

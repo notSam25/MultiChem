@@ -1,5 +1,5 @@
 #include "Balancer.hpp"
 
-Balance::~Balance() {
+Balance::~Balance(){
 
 };

@@ -1,9 +1,8 @@
 #pragma once
 
-
-class Balance   {
+class Balance {
 public:
-    ~Balance();
-    
+  ~Balance();
+
 protected:
 };
