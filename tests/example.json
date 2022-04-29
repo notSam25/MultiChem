@@ -1,9 +1,9 @@
 {
     "MoleConversion": {
-        "Equation": "Li2O",
-        "Mass": "450",
-        "Moles": "",
-        "Output": "moles"
+        "Equation": "Na2SO4",
+        "Mass": "145",
+        "Moles": "1.02087",
+        "Output": "mass"
     },
     "Abundance": {},
     "Balance": {},

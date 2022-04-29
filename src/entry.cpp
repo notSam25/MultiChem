@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
         nlohmann::json InputData =
             nlohmann::json::parse(data.c_str())["MoleConversion"];
         if (MoleConvert)
-          mc::MoleConversion::ConvertMoles(InputData);
+          mc::MoleConversion::MoleConversion(InputData);
 
       } else
         Dbg.LogData(Debug::LogType::Error, "File does not exist!");
