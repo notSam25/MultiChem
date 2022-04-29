@@ -17,5 +17,23 @@ add_executable(mchem ${SOURCE})
 target_include_directories(mchem PUBLIC include)
 target_compile_features(mchem PUBLIC cxx_std_17)
 
+# Standard filesystem library needs additional linking options on older compilers
+# https://en.cppreference.com/w/cpp/filesystem#Notes
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "9.1")
+    target_link_libraries(mchem stdc++fs)
+  else()
+    target_link_libraries(mchem)
+  endif()
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "9.0")
+    target_link_libraries(mchem c++fs)
+  else()
+    target_link_libraries(mchem)
+  endif()
+else()
+  target_link_libraries(mchem)
+endif()
+
 add_subdirectory(vendor)
 target_link_libraries(mchem PUBLIC ghc_filesystem nlohmann_json samHeaders args)
