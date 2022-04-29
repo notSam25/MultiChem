@@ -1,10 +1,10 @@
-#include <filesystem>
 #include <args.hxx>
 #include <common.hpp>
 #include <cstring>
+#include <filesystem>
 #include <nlohmann/json.hpp>
 #include <stdexcept>
-
+#include "Core/BalanceEquation.hpp"
 #include "Core/Filesystem.hpp"
 #include "Core/MoleConversion.hpp"
 
@@ -23,6 +23,8 @@ int main(int argc, char **argv) {
   args::HelpFlag help(parser, "help", "Display this help menu", {'h', "help"});
   args::Group commands(parser, "Commands");
   args::Flag MoleConvert(commands, "m", "Convert to mole", {'m', "mole"});
+  args::Flag BalanceEquation(commands, "b", "Balance equation",
+                             {'b', "balance"});
   args::ValueFlag<std::string> message(parser, "PATH", "Path to JSON input",
                                        {'p'});
 
@@ -36,11 +38,16 @@ int main(int argc, char **argv) {
         // File exists and has the extension of .json
 
         std::string data = mc::Filesystem::GetFileContents(message->c_str());
-        nlohmann::json InputData =
-            nlohmann::json::parse(data.c_str())["MoleConversion"];
-        if (MoleConvert)
+        if (MoleConvert) {
+          nlohmann::json InputData =
+              nlohmann::json::parse(data.c_str())["MoleConversion"];
           mc::MoleConversion::MoleConversion(InputData);
-
+        }
+        if (BalanceEquation) {
+          nlohmann::json InputData =
+              nlohmann::json::parse(data.c_str())["BalanceEquation"];
+          mc::BalanceEquation::BalanceEquation(InputData);
+        }
       } else
         Dbg.LogData(Debug::LogType::Error, "File does not exist!");
     }

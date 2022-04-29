@@ -1,11 +1,15 @@
 {
     "MoleConversion": {
-        "Equation": "Na2SO4",
+        "Equation": "",
         "Mass": "145",
         "Moles": "1.02087",
-        "Output": "mass"
+        "Output": "moles"
     },
     "Abundance": {},
-    "Balance": {},
+    "BalanceEquation": {
+        "Reactants": "Li + O12",
+        "Products": "Li2O",
+        "ReactionType": "synthesis"
+    },
     "PhysicalState": {}
 }

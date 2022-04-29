@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(SOURCE
     src/entry.cpp
 
-    src/Core/Balancer.cpp
+    src/Core/BalanceEquation.cpp
     src/Core/Filesystem.cpp
     src/Core/MoleConversion.cpp
     src/Core/PeriodicTable.cpp

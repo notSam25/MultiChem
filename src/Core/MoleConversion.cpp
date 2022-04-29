@@ -6,13 +6,11 @@ namespace mc::MoleConversion {
 void MoleConversion(nlohmann::json input) {
   std::string toConvert = input.value("Output", "");
   if (toConvert == "moles") {
-    if (input.value("Mass", "") == "") {
-      std::runtime_error("MoleConversion.Mass error");
-    }
+    if (input.value("Mass", "") == "")
+      throw std::runtime_error("MoleConversion.Mass error");
 
-    if (input.value("Equation", "") == "") {
-      std::runtime_error("MoleConversion.Equation error");
-    }
+    if (input.value("Equation", "") == "")
+      throw std::runtime_error("MoleConversion.Equation error");
 
     std::string EquationStr = input.value("Equation", "");
     double SampleMass = std::atof(input.value("Mass", "0.0").c_str());
