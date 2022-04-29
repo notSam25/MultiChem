@@ -45,4 +45,4 @@ void MoleConversion(nlohmann::json input) {
     std::cout << "SampleMass      -> " << SampleMass << std::endl;
   }
 }
-}
+} // namespace mc::MoleConversion

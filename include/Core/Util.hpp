@@ -8,8 +8,9 @@ extern std::string periodicTable;
 extern nlohmann::json elementData;
 
 namespace mc::Util {
-template <typename T>
-inline bool IsUppercase(T in) { return std::toupper(in) == in; }
+template <typename T> inline bool IsUppercase(T in) {
+  return std::toupper(in) == in;
+}
 
 double GetMolarMass(const std::string &EquationInput);
-} // namespace mc::util
+} // namespace mc::Util

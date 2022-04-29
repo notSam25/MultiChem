@@ -6,5 +6,5 @@
 #include <string>
 
 namespace mc::MoleConversion {
-  void MoleConversion(nlohmann::json input);
+void MoleConversion(nlohmann::json input);
 } // namespace mc::MoleConversion

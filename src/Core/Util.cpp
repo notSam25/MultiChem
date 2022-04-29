@@ -28,11 +28,13 @@ double GetMolarMass(const std::string &EquationInput) {
         }
       }
     } else if (std::isdigit(curChar)) {
-      TotalMolarMass = TotalMolarMass - LastMolarMass +
-                       (LastMolarMass * (static_cast<int>(curChar) -
-                                         '0')); // get integer from char by subtracting the 0 char
+      TotalMolarMass =
+          TotalMolarMass - LastMolarMass +
+          (LastMolarMass *
+           (static_cast<int>(curChar) -
+            '0')); // get integer from char by subtracting the 0 char
     }
   }
   return TotalMolarMass;
 }
-}
+} // namespace mc::Util

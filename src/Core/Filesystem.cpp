@@ -1,8 +1,8 @@
-#include <iostream>
 #include <filesystem>
 #include <fstream>
-#include <vector>
+#include <iostream>
 #include <string>
+#include <vector>
 
 #include "Core/Filesystem.hpp"
 
@@ -27,4 +27,4 @@ std::string GetFileContents(const char *name) {
   }
   return "";
 }
-}
+} // namespace mc::Filesystem

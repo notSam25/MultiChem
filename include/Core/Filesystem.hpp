@@ -3,5 +3,5 @@
 #include <string>
 
 namespace mc::Filesystem {
-  std::string GetFileContents(const char *name);
-} // namespace mc::filesystem
+std::string GetFileContents(const char *name);
+} // namespace mc::Filesystem
