@@ -6,6 +6,10 @@
         "Output": "mass"
     },
     "Abundance": {},
-    "Balance": {},
+    "Balance": {
+        "Reactants": "Li + O2",
+        "Products": "Li2O",
+        "ReactionType": "synthesis"
+    },
     "PhysicalState": {}
 }
