@@ -1,5 +1,3 @@
-#include "Balancer.hpp"
+#include "Core/Balancer.hpp"
 
-Balance::~Balance(){
-
-};
+Balance::~Balance() {};

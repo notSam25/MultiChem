@@ -1,12 +1,9 @@
-#pragma once
-#include "Util.hpp"
-#include <cstring>
-#include <iostream>
-#include <nlohmann/json.hpp>
 #include <string>
 
+#include "Core/MoleConversion.hpp"
+
 namespace mc::MoleConversion {
-inline void MoleConversion(nlohmann::json input) {
+void MoleConversion(nlohmann::json input) {
   std::string toConvert = input.value("Output", "");
   if (toConvert == "moles") {
     if (input.value("Mass", "") == "") {
@@ -19,7 +16,7 @@ inline void MoleConversion(nlohmann::json input) {
 
     std::string EquationStr = input.value("Equation", "");
     double SampleMass = std::atof(input.value("Mass", "0.0").c_str());
-    double MolarMass = mc::util::GetMolarMass(EquationStr);
+    double MolarMass = mc::Util::GetMolarMass(EquationStr);
 
     std::cout << "Total MolarMass of [ " << EquationStr << " , " << MolarMass
               << " ]" << std::endl;
@@ -38,7 +35,7 @@ inline void MoleConversion(nlohmann::json input) {
 
     std::string EquationStr = input.value("Equation", "");
     double SampleMoles = std::atof(input.value("Moles", "0.0").c_str());
-    double MolarMass = mc::util::GetMolarMass(EquationStr);
+    double MolarMass = mc::Util::GetMolarMass(EquationStr);
 
     std::cout << "Total MolarMass of [ " << EquationStr << " , " << MolarMass
               << " ]" << std::endl;

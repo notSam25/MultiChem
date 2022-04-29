@@ -1,11 +1,12 @@
-#include "Core/Filesystem.hpp"
-#include "Core/MoleConversion.hpp"
-#include "ghc/filesystem.hpp"
+#include <filesystem>
 #include <args.hxx>
 #include <common.hpp>
 #include <cstring>
 #include <nlohmann/json.hpp>
 #include <stdexcept>
+
+#include "Core/Filesystem.hpp"
+#include "Core/MoleConversion.hpp"
 
 using Debug = Common::Debug;
 Debug Dbg;
@@ -29,12 +30,12 @@ int main(int argc, char **argv) {
     parser.ParseCLI(argc, argv);
     if (message) {
       std::cout << "Path: " << args::get(message) << std::endl;
-      if (ghc::filesystem::exists(message->c_str()) &&
-          strcmp(ghc::filesystem::path(message->c_str()).extension().c_str(),
+      if (std::filesystem::exists(message->c_str()) &&
+          strcmp(std::filesystem::path(message->c_str()).extension().c_str(),
                  ".json") == 0) {
         // File exists and has the extension of .json
 
-        std::string data = mc::filesystem::getFileContents(message->c_str());
+        std::string data = mc::Filesystem::GetFileContents(message->c_str());
         nlohmann::json InputData =
             nlohmann::json::parse(data.c_str())["MoleConversion"];
         if (MoleConvert)

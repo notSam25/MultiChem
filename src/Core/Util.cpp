@@ -1,19 +1,10 @@
-#pragma once
-#include "PeriodicTable.hpp"
-#include <nlohmann/json.hpp>
+#include "Core/Util.hpp"
 
 std::string periodicTable(reinterpret_cast<char *>(periodic_table));
 nlohmann::json elementData = nlohmann::json::parse(periodicTable)["elements"];
 
-namespace mc::util {
-template <typename InputType> inline bool IsUppercase(InputType Input) {
-  if (std::toupper(Input) == Input)
-    return true;
-
-  return false;
-}
-
-inline double GetMolarMass(const std::string &EquationInput) {
+namespace mc::Util {
+double GetMolarMass(const std::string &EquationInput) {
   double TotalMolarMass = 0.0f;
   double LastMolarMass = 0.0f;
   for (long long int i = 0; i < EquationInput.size(); i++) {
@@ -22,9 +13,9 @@ inline double GetMolarMass(const std::string &EquationInput) {
     std::string CurElement = "";
     if (curChar != 0 && std::isalpha(curChar)) { // Is alphanumeric
 
-      if (mc::util::IsUppercase(curChar)) {
+      if (IsUppercase(curChar)) {
         CurElement += curChar;
-        if (!mc::util::IsUppercase(nextChar))
+        if (!IsUppercase(nextChar))
           CurElement += nextChar;
 
         for (int j = 0; j < elementData.size(); j++) {
@@ -37,12 +28,13 @@ inline double GetMolarMass(const std::string &EquationInput) {
         }
       }
     } else if (std::isdigit(curChar)) {
-      TotalMolarMass = TotalMolarMass - LastMolarMass +
-                       (LastMolarMass * (static_cast<int>(curChar) -
-                                         48)); // 48 is the ASCII value of 0.
+      TotalMolarMass =
+          TotalMolarMass - LastMolarMass +
+          (LastMolarMass *
+           (static_cast<int>(curChar) -
+            '0')); // get integer from char by subtracting the 0 char
     }
   }
   return TotalMolarMass;
 }
-
-} // namespace mc::util
+} // namespace mc::Util
