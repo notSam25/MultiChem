@@ -1,11 +1,19 @@
-project(MultiChem)
 cmake_minimum_required(VERSION 3.16)
+project(MultiChem)
 
-set(SOURCES
+set(CMAKE_CXX_STANDARD 17)
+
+set(SOURCE
     src/entry.cpp
+
+    src/Core/Balancer.cpp
+    src/Core/Filesystem.cpp
+    src/Core/MoleConversion.cpp
+    src/Core/PeriodicTable.cpp
+    src/Core/Util.cpp
 )
 
-add_executable(mchem ${SOURCES})
+add_executable(mchem ${SOURCE})
 target_include_directories(mchem PUBLIC include)
 target_compile_features(mchem PUBLIC cxx_std_17)
 
