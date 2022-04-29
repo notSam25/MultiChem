@@ -1,9 +1,8 @@
+#include "Core/Filesystem.hpp"
 #include "Core/MoleConversion.hpp"
-#include "Core/PeriodicTable.hpp"
-#include "Core/filesystem.hpp"
-#include "common.hpp"
 #include "ghc/filesystem.hpp"
 #include <args.hxx>
+#include <common.hpp>
 #include <cstring>
 #include <nlohmann/json.hpp>
 #include <stdexcept>
@@ -18,7 +17,6 @@ int main(int argc, char **argv) {
     return 0;
   }
 
-  Common::PrintSystemInformation();
   args::ArgumentParser parser("MultiChem by @notSam25",
                               "Licence info on github.com/notSam25/MultiChem");
   args::HelpFlag help(parser, "help", "Display this help menu", {'h', "help"});
@@ -36,18 +34,11 @@ int main(int argc, char **argv) {
                  ".json") == 0) {
         // File exists and has the extension of .json
 
-        // test JSON parse of periodic table
-        std::string periodicTable(reinterpret_cast<char *>(periodic_table));
-        nlohmann::json elementData =
-            nlohmann::json::parse(periodicTable)["elements"];
-        std::cout << "PeriodicTable[0] " << elementData[0].value("name", "")
-                  << std::endl; // Prints Hydrogen
-
         std::string data = mc::filesystem::getFileContents(message->c_str());
         nlohmann::json InputData =
             nlohmann::json::parse(data.c_str())["MoleConversion"];
         if (MoleConvert)
-          mc::MoleConversion::ConvertMoles(InputData);
+          mc::MoleConversion::MoleConversion(InputData);
 
       } else
         Dbg.LogData(Debug::LogType::Error, "File does not exist!");
