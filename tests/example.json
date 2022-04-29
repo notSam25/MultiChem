@@ -6,8 +6,8 @@
         "Output": "mass"
     },
     "Abundance": {},
-    "Balance": {
-        "Reactants": "Li + O2",
+    "BalanceEquation": {
+        "Reactants": "Li + O12",
         "Products": "Li2O",
         "ReactionType": "synthesis"
     },

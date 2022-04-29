@@ -1,4 +1,6 @@
 #pragma once
+#include "Util.hpp"
+#include <iostream>
 #include <nlohmann/json.hpp>
 #include <string>
 
@@ -12,10 +14,13 @@ void BalanceEquation(nlohmann::json Balance) {
 
   if (Balance.value("ReactionType", "") == "")
     std::runtime_error("BalanceEquation.ReactionType error");
-    
+
   // Reaction types: synthesis. decomposition, combustion, double-replacement,
   // single-replacement
   if (Balance.value("ReactionType", "") == "synthesis") {
+    // Formula: A + B -> AB
+    int ASubscript = mc::util::GetSubscript("O12");
+    std::cout << ASubscript << std::endl;
   }
   if (Balance.value("ReactionType", "") == "decomposition") {
   }

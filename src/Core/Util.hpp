@@ -45,4 +45,30 @@ inline double GetMolarMass(const std::string &EquationInput) {
   return TotalMolarMass;
 }
 
+inline int GetSubscript(const std::string &EquationInput) {
+  int TotalInputCount = 0;
+  for (long long int i = 0; i < EquationInput.size(); i++) {
+    char curChar = EquationInput[i];
+    char nextChar = EquationInput[i + 1];
+    std::string CurElement = "";
+    if (curChar != 0 && std::isalpha(curChar)) { // Is alphanumeric
+
+      if (mc::util::IsUppercase(curChar)) {
+        CurElement += curChar;
+        if (!mc::util::IsUppercase(nextChar))
+          CurElement += nextChar;
+
+        for (int j = 0; j < elementData.size(); j++) {
+          if (elementData[j]["symbol"] == CurElement) {
+            TotalInputCount++;
+            break;
+          }
+        }
+      }
+    } else if (std::isdigit(curChar))
+      TotalInputCount =
+          (1 * (static_cast<int>(curChar) - 48)); // 48 is the ASCII value of 0.
+  }
+  return TotalInputCount;
+}
 } // namespace mc::util
