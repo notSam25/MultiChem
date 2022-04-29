@@ -22,9 +22,6 @@ jobs:
 
       - name: Build
         run: cmake --build build
-
-      - name: Test with Catch2
-        run: cd build/bin && ./tests
         
   windows:
     runs-on: windows-latest
