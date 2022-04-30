@@ -1,3 +1,2 @@
 * Finish example .json input.
-* Add support for parenthesis.
-* Fix single digit subscript parsing.
+* Add support for coefficients.
