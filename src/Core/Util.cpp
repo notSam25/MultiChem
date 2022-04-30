@@ -1,4 +1,9 @@
 #include "Core/Util.hpp"
+#include <cctype>
+#include <cstring>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 std::string periodicTable(reinterpret_cast<char *>(periodic_table));
 nlohmann::json elementData = nlohmann::json::parse(periodicTable)["elements"];
@@ -11,8 +16,8 @@ double GetMolarMass(const std::string &EquationInput) {
     char curChar = EquationInput[i];
     char nextChar = EquationInput[i + 1];
     std::string CurElement = "";
-    if (curChar != 0 && std::isalpha(curChar)) { // Is alphanumeric
 
+    if (curChar != 0 && std::isalpha(curChar)) { // Is alphanumeric
       if (IsUppercase(curChar)) {
         CurElement += curChar;
         if (!IsUppercase(nextChar))
@@ -28,11 +33,19 @@ double GetMolarMass(const std::string &EquationInput) {
         }
       }
     } else if (std::isdigit(curChar)) {
-      TotalMolarMass =
-          TotalMolarMass - LastMolarMass +
-          (LastMolarMass *
-           (static_cast<int>(curChar) -
-            '0')); // get integer from char by subtracting the 0 char
+      std::string strSubscript;
+      long long int j = 0;
+      while (std::isdigit(EquationInput[i + j])) {
+
+        strSubscript +=
+            std::to_string(static_cast<int>(EquationInput[i + j] - '0'));
+        j++;
+      }
+      i = i + (j - 1); // So we skip over the numbers allready traversed.
+      TotalMolarMass = TotalMolarMass - LastMolarMass +
+                       (LastMolarMass * std::stoi(strSubscript));
+    } else {
+      throw std::runtime_error("Util.GetMolarMass error");
     }
   }
   return TotalMolarMass;
