@@ -3,7 +3,7 @@
 #include "Core/MoleConversion.hpp"
 
 namespace mc::MoleConversion {
-void MoleConversion(nlohmann::json input) {
+void Convert(nlohmann::json input) {
   std::string toConvert = input.value("Output", "");
   if (toConvert == "moles") {
     if (input.value("Mass", "") == "")

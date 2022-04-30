@@ -2,7 +2,7 @@
 #include <stdexcept>
 namespace mc::BalanceEquation {
 
-void BalanceEquation(nlohmann::json input) {
+void Balance(nlohmann::json input) {
   if (input.value("Reactants", "") == "")
     throw std::runtime_error("BalanceEquation.Reactants error");
 
