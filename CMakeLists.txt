@@ -36,4 +36,4 @@ else()
 endif()
 
 add_subdirectory(vendor)
-target_link_libraries(mchem PUBLIC ghc_filesystem nlohmann_json samHeaders args)
+target_link_libraries(mchem PUBLIC nlohmann_json samHeaders args)
