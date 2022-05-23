@@ -33,9 +33,7 @@ int main(int argc, char **argv) {
     if (inputPath) {
       std::string strInputPath = inputPath->c_str();
       if (std::filesystem::exists(strInputPath.c_str()) &&
-          strcmp(
-              std::filesystem::path(strInputPath.c_str()).extension().c_str(),
-              ".json") == 0) {
+          std::filesystem::path(strInputPath.c_str()).extension() == ".json") {
         // File exists and has the extension of .json
         Dbg.LogData(Debug::LogType::Info, "Input Path: " + strInputPath);
         std::string data =
